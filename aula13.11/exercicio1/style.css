@@ -1,0 +1,30 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-indent: 80px;
+}
+
+#G1{
+    color:red; font-size:small;
+}
+
+#UO{
+    color:black; font-size: x-large;
+}
+
+#BP{
+    color:chartreuse; font-size:large;
+}
+
+
+
+
