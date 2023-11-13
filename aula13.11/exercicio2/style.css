@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    justify-content: left;
+    align-items:baseline;
+    flex-direction: column;
+}
+
+img{   
+    height:200px;
+    width:200px;
+}
+
+#amarelo{
+    font-weight:bolder; color:gold;
+}
+
+#vermelho{
+    font-weight:bolder; color:red;
+}
+
+#azul{
+    font-weight:bolder; color:rgb(1, 118, 252);
+}
+
+#marron{
+    font-weight:bolder; color:rgb(165, 42, 42, 0.418);
+}
+
+#violeta{
+    font-weight:bolder; color:rgb(128,0,128);
+}
