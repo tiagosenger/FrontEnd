@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="formTarefa">
+        <label for="tarefa">Tarefa:</label>
+        <input type="text" id="tarefa">
+        <button type="button" onclick="adicionarTarefa()">Adicionar Tarefa</button>
+        <button id="limparTarefas" onclick="limparTarefas()">Limpar Tarefas</button>
+    </form>
+
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        class Tarefa {
+            constructor(nome) {
+                this.nome = nome;
+            }
+        }
+
+        function adicionaTarefaDOM(tarefa, numero) {
+            const listaTarefas = document.getElementById('listaTarefas');
+            const novaTarefa = document.createElement('li');
+            novaTarefa.textContent = `${numero}. ${tarefa.nome}`;
+            listaTarefas.appendChild(novaTarefa);
+        }
+
+        function adicionaTarefaNoStorage(tarefa) {
+            let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+            tarefas.push(tarefa);
+            localStorage.setItem('tarefas', JSON.stringify(tarefas));
+        }
+
+        function adicionarTarefa() {
+            const nomeTarefa = document.getElementById('tarefa').value;
+            if (nomeTarefa.trim() !== '') {
+                let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+                const novaTarefa = new Tarefa(nomeTarefa);
+                tarefas.push(novaTarefa);
+                localStorage.setItem('tarefas', JSON.stringify(tarefas));
+
+                adicionaTarefaDOM(novaTarefa, tarefas.length);
+
+                document.getElementById('tarefa').value = '';
+            } else {
+                alert('Digite o nome da tarefa.');
+            }
+        }  
+
+        function limparTarefas() {
+            const listaTarefas = document.getElementById('listaTarefas');
+            listaTarefas.innerHTML = '';
+            localStorage.removeItem('tarefas');
+            return false;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+            tarefas.forEach((tarefa, index) => {
+                adicionaTarefaDOM(tarefa, index + 1);
+            });
+        });
+
+    </script>    
+</body>
+</html>
