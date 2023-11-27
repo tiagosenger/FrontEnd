@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computadores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        class Computador {
+            constructor(modelo, processador, memoria, armazenamento) {
+                this.modelo = modelo;
+                this.processador = processador;
+                this.memoria = memoria;
+                this.armazenamento = armazenamento;
+            }
+    
+            ligar() {
+                return `${this.modelo} ligado.`;
+            }
+    
+            desligar() {
+                return `${this.modelo} desligado.`;
+            }
+        }
+    
+        function criarMapDoComputador(computador) {
+            const computadorMap = new Map(Object.entries(computador));
+            return computadorMap;
+        }
+    
+        function exibirComputadorNoHTML(computadorMap) {
+            const lista = document.createElement('ul');
+    
+            for (let [chave, valor] of computadorMap) {
+                const item = document.createElement('li');
+                item.textContent = `${chave}: ${valor}`;
+                lista.appendChild(item);
+            }
+    
+            document.body.appendChild(lista);
+        }
+    
+        const computador1 = new Computador('Dell XPS', 'Intel Core i7', '16GB RAM', '512GB SSD');
+        const computador2 = new Computador('HP Pavilion', 'AMD Ryzen 5', '8GB RAM', '1TB HDD');
+        const computador3 = new Computador('MacBook Pro', 'Apple M1', '8GB RAM', '256GB SSD');
+    
+        const mapComputador1 = criarMapDoComputador(computador1);
+        const mapComputador2 = criarMapDoComputador(computador2);
+        const mapComputador3 = criarMapDoComputador(computador3);
+    
+        exibirComputadorNoHTML(mapComputador1);
+        exibirComputadorNoHTML(mapComputador2);
+        exibirComputadorNoHTML(mapComputador3);
+    </script>
+</body>
+</html>
