@@ -5,7 +5,17 @@
   "projects": {
     "minhaApp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -27,12 +37,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -98,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "f2e45890-be62-4d40-a840-0c290d4ccff5"
+    "analytics": "714ed861-bd43-4d46-8481-94d4eed945fa"
   }
 }
