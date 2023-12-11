@@ -11,7 +11,11 @@ export class AraraComponent {
   descricao:string = 'A arara é linda'
   link:string = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fagapornisbh.com.br%2Fproduto%2Farara-vermelha%2F&psig=AOvVaw3EPYOEcCoFGHU_76m9RMb7&ust=1702409272756000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIj37fKOiIMDFQAAAAAdAAAAABAD'
 
+
   public getToString():string{
     return this.nome + ' - ' + this.descricao
   }
+
+nome2:string = 'Tamanduá'
+
 }

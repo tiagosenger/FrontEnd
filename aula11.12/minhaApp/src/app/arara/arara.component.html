@@ -1,10 +1,12 @@
 <p>Arara voadora</p>
 
-public getToString():string{
-  return this.nome + ' - ' + this.descricao;
-}
-
 <div>
-  {{getToString}}
-  <img src="{{imagem}}" alt="Arara">
+  <img src="{{imagem}}" alt="Arara"> <br>
+   {{getToString()}}
 </div>
+
+
+<h3> ngModel </h3>
+<input type="text" [(ngModel)]="nome2">
+<p id="textodigitado">{{nome2}}</p>
+
