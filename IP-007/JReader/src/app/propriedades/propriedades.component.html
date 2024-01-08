@@ -1,0 +1,10 @@
+<div>
+    <h2>Propriedades</h2>
+    <ul *ngIf="veiculoSelecionado">
+      <li *ngFor="let propriedade of Object.keys(veiculoSelecionado)">
+        <a href="javascript:void(0)" (click)="selecionarPropriedade(propriedade)">
+          {{ propriedade }}
+        </a>
+      </li>
+    </ul>
+  </div>
