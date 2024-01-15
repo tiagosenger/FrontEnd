@@ -13,4 +13,3 @@ export class HighlightPipe implements PipeTransform {
     return text.replace(pattern, match => `<span class="highlight">${match}</span>`);
   }
 }
-
