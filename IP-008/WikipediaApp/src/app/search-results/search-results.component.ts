@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-results',
-  standalone: true,
-  imports: [],
   templateUrl: './search-results.component.html',
-  styleUrl: './search-results.component.css'
+  styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent {
-
+  @Input() searchResults!: any[];
+  @Input() searchTerm!: string;
 }

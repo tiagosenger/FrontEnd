@@ -1,1 +1,4 @@
-<p>search-results works!</p>
+<div *ngFor="let result of searchResults">
+    <h3 [innerHTML]="result.title | highlight: searchTerm"></h3>
+    <p [innerHTML]="result.snippet | highlight: searchTerm"></p>
+  </div>

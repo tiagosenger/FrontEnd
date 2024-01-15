@@ -1,14 +1,25 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { WikipediaService } from './wikipedia.service';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { HighlightPipe } from './highlight.pipe';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'WikipediaApp';
+  results: any[] = [];
+  searchTerm: string = '';
+
+  constructor(private wikipediaService: WikipediaService) {}
+
+  search(term: string) {
+    this.searchTerm = term;
+    this.wikipediaService.search(term).subscribe(data => {
+      this.results = data.query.search;
+    });
+  }
 }
+
